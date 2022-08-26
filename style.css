@@ -1,0 +1,296 @@
+/* !----- 'Great Vibes', cursive ----- */
+
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+
+/* !----- 'Exo', sans-serif ----- */
+
+@import url('https://fonts.googleapis.com/css2?family=Exo:wght@200;300;400;500;600;700;900&display=swap');
+
+/* !---------- CSS Variables ---------- */
+
+:root{
+    --primary: #ddd;
+    --light-gray: rgb(80, 80, 80);
+    --dark: #333;
+    --light: #fff;
+    --sig: #123c69;
+    --shadow: 0 1px 5px rgba(104, 104, 104, 0.8)
+}
+
+/* !---------- CSS Reset ---------- */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+a, button {
+    cursor: revert;
+    text-decoration: none;
+}
+img {
+    max-width: 100%;
+    display: block;
+}
+ol, ul, menu {
+    list-style: none;
+}
+
+
+/* !---------- Public CSS ---------- */
+
+body{
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background: var(--primary);
+    font-family: 'Exo', sans-serif;
+}
+
+.container{
+    width: 80%;
+    margin: 0 auto;
+}
+
+i{
+    color: var(--dark);
+}
+
+/* !---------- Main CSS ---------- */
+
+.sig-name{
+    text-align: center;
+    font-family: 'Great Vibes', cursive;
+    color: var(--dark);
+    font-size: 2.3rem;
+    display: grid;
+    place-items: center;
+}
+.sig-name p{
+    display: block;
+}
+.sig-name .sig-1{
+    margin-bottom: 0;
+}
+.sig-name .sig-2{
+    margin-top: -5px;
+}
+
+.intro .container .row{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 500px;
+    position: relative;
+}
+.intro .container .row .about-me{
+    width: 50%;
+    padding: 1.5rem;
+    box-shadow: var(--shadow);
+    position: relative;
+    background: var(--light);
+    border-radius: 25px 0;
+    line-height: 1.5;
+}
+.intro .container .row .about-me p{
+    color: var(--light-gray);
+}
+.intro .container .row .about-me p a{
+    color: var(--dark);
+    font-weight: bold;
+}
+
+
+.intro .container .row .my-pic-1{
+    position: absolute;
+    width: 32%;
+    z-index: -99999;
+    left: -45px;
+    top: 10px;
+}
+.intro .container .row .my-pic-1 img{
+    border-radius: 25px;
+}
+.intro .container .row .my-pic-2{
+    position: absolute;
+    width: 32%;
+    z-index: -99999;
+    right: 20px;
+    bottom: -10px;
+}
+.intro .container .row .my-pic-2 img{
+    border-radius: 25px;
+}
+
+.about-me .contact-links{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.5rem;
+}
+.about-me .contact-links .social-circle{
+    border: 1px solid var(--dark);
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0.5rem;
+    cursor: pointer;
+    transition: all 250ms;
+}
+.about-me .contact-links .social-circle i{
+    color: var(--dark);
+}
+.about-me .contact-links .social-circle:hover{
+    box-shadow: var(--shadow);
+    transform: scale(1.1);
+}
+
+.projects{
+    min-height: 300px;
+}
+.projects .container{
+    width: 85%;
+}
+.projects .container .row-reverse{
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+}
+.projects .container .padding-y{
+    padding: 1.5rem 0;
+}
+
+.projects .container .row h1{
+    color: var(--dark);
+    margin-top: 4.5rem;
+}
+.projects .container .row h1 i{
+    color: var(--dark);
+}
+
+.projects .container .pro-boxes{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+.projects .container .pro-boxes .project-box{
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    position: relative;
+}
+
+.project-box img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.project-box::before{
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: var(--dark);
+    transform: translateY(-100%);
+    transition: all 0.7s;
+}
+.project-box .project-details{
+    position: absolute;
+    inset: 0;
+    background-color: var(--light);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    transform: translateY(-100%);
+    transition: all 0.7s;
+}
+.project-details h2, .project-details p{
+    margin: 0;
+    opacity: 0;
+    color: var(--dark);
+    transform: translateY(-100%);
+    transition: all 0.3s;
+}
+.project-details p{
+    font-size: 14px;
+    text-align: center;
+    padding: 0.7rem;
+}
+
+.project-box:hover::before{
+    transform: translateY(110%);
+}
+.project-box:hover .project-details{
+    transform: none;
+}
+.project-box:hover h2, .project-box:hover p{
+    opacity: 1;
+    transform: none;
+    transition-delay: 0.4s;
+}
+
+/* !---------- Main CSS ---------- */
+
+@media screen and (max-width: 1000px) {
+
+    .container{
+        width: 90%;
+    }
+    .intro .container .row .about-me{
+        width: 60%;
+    }
+    .intro .container .row .my-pic-2{
+        display: none;
+    }
+    .intro .container .row .my-pic-1{
+        position: relative;
+        width: 33%;
+        top: 0;
+        left: 20px;
+    }
+    .projects .container .pro-boxes{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+
+}
+
+@media screen and (max-width: 770px){
+
+    .intro .container .row .about-me{
+        width: 75%;
+    }
+    .intro .container .row .my-pic-1{
+        width: 25%;
+        top: -115px;
+        left: 20px;
+    }
+
+}
+
+@media screen and (max-width: 500px){
+
+    .intro .container .row{
+        flex-direction: column;
+    }
+    .intro .container .row .about-me{
+        width: 100%;
+    }
+    .intro .container .row .my-pic-1{
+        width: 25%;
+        top: 0;
+        left: 0;
+        padding: 0.5rem;
+    }
+    .projects .container .pro-boxes{
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+}
+
+
+
